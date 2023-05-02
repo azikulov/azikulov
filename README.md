@@ -1,6 +1,6 @@
 ## 🌐 Socials:
 
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://instagram.com/azikulov_) [![Telegram](https://img.shields.io/badge/Telegram-%234361EE.svg?style=for-the-badge&logo=Telegram&logoColor=white)](https://t.me/HexWizard)
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://instagram.com/azikulov_) [![Telegram](https://img.shields.io/badge/Telegram-%234361EE.svg?style=for-the-badge&logo=Telegram&logoColor=white)](https://t.me/azikulov)
 
 # 💻 Tech Stack:
 
