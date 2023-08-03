@@ -103,7 +103,7 @@ export default function Home() {
 
         <div className={styles.right}>
           <Image
-            src={require('@/assets/images/vectors/Programmer-cuate.png')}
+            src={require('@/assets/images/vectors/programmer-cuate.png')}
             alt=''
           />
         </div>
