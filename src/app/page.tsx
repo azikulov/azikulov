@@ -34,7 +34,7 @@ const projects = [
 
 export default function Home() {
   return (
-    <div className=''>
+    <div>
       <header className={styles.header}>
         <nav className={styles.navigation}>
           <div className={styles.logo}>
@@ -50,13 +50,7 @@ export default function Home() {
             hidden
           />
 
-          <label
-            onClick={() => {
-              window.navigator.vibrate(200);
-            }}
-            htmlFor='menu-toggle'
-            className={styles.menuIcon}
-          >
+          <label htmlFor='menu-toggle' className={styles.menuIcon}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 24 24'
@@ -87,28 +81,33 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* <div className={styles.container}>
-        <h1 className={styles.title}>Projects</h1>
+      <div className={styles.main}>
+        <div className={styles.left}>
+          <p className={styles.profession}>Frontend Developer</p>
+          <h1 className={styles.fullname}>
+            Azikulov <span>Maulen</span>
+          </h1>
+          <p className={styles.description}>
+            Я создаю красивые и функциональные веб-интерфейсы с использованием
+            современных технологий, таких как HTML, CSS и JavaScript
+            (TypeScript). Мой опыт включает работу с популярными фреймворками и
+            библиотеками, такими как React и Vue.js. Я стремлюсь к оптимизации
+            производительности и совместимости веб-приложений, чтобы обеспечить
+            отличный пользовательский опыт на всех устройствах.
+          </p>
 
-        <div className={styles.cards}>
-          {projects.map((project, key) => (
-            <div className={styles.card} key={key}>
-              <Image className={styles.image} src={project.img} alt='' />
-
-              <p className={styles.title}>{project.title}</p>
-
-              <div className={styles.nav}>
-                <Link className={styles.link} href={project.demo}>
-                  Demo
-                </Link>
-                <Link className={styles.link} href={project.github || '#'}>
-                  GitHub
-                </Link>
-              </div>
-            </div>
-          ))}
+          <Link className={styles.button} href={'/#projects'}>
+            Смотреть мои работы
+          </Link>
         </div>
-      </div> */}
+
+        <div className={styles.right}>
+          <Image
+            src={require('@/assets/images/vectors/Programmer-cuate.png')}
+            alt=''
+          />
+        </div>
+      </div>
     </div>
   );
 }

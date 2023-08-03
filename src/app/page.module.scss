@@ -1,3 +1,4 @@
+// Sizes
 @mixin mobile {
   @media screen and (max-width: 768px) {
     @content;
@@ -7,6 +8,20 @@
 @mixin tablet {
   @media screen and (max-width: 1024px) {
     @content;
+  }
+}
+
+@mixin container {
+  width: min(100%, 1440px);
+  margin-inline: auto;
+  padding-inline: 7.5rem;
+
+  @include tablet() {
+    padding-inline: 4rem;
+  }
+
+  @include mobile() {
+    padding-inline: 1.25rem;
   }
 }
 
@@ -21,11 +36,13 @@
   background: #151418;
 
   & > .navigation {
+    @include container();
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 1.25rem 2rem;
+    padding-block: 1.25rem;
 
     @include mobile() {
       padding-inline: 1.25rem;
@@ -53,7 +70,6 @@
       @include mobile() {
         flex-flow: column;
         row-gap: 0.75rem;
-        align-items: flex-start;
         background: #151418;
 
         padding-block: 0.75rem;
@@ -85,6 +101,10 @@
           color: #fff;
 
           transition: 0.2s all ease-in-out;
+
+          @include mobile() {
+            text-align: center;
+          }
 
           &:hover {
             opacity: 1;
@@ -118,69 +138,124 @@
   }
 }
 
-.container {
-  width: min(100%, 1024px);
-  margin-inline: auto;
-  padding-inline: 2rem;
+.main {
+  @include container();
 
-  & > .title {
-    text-align: center;
-    font-size: 2rem;
-    line-height: normal;
-    color: #212121;
-    letter-spacing: 0.02rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 
-    padding-block: 1rem;
+  padding-block: 2rem;
+
+  @include tablet() {
+    padding-block: 6rem;
   }
 
-  & > .cards {
-    margin-block: 1rem;
+  @include mobile() {
+    padding-block: 2rem;
 
+    grid-template-columns: 1fr;
+  }
+
+  & > .left {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+    @include mobile() {
+      align-items: center;
+    }
+
+    & > .profession {
+      color: #ffffffe2;
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: 0.01rem;
+
+      background: #151418;
+      width: fit-content;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+
+      @include mobile() {
+        font-size: 0.875rem;
+        letter-spacing: 0.025rem;
+      }
+    }
+
+    & > .fullname {
+      color: #212121;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.05rem;
+      white-space: nowrap;
+
+      margin-top: 0.5rem;
+
+      @include mobile() {
+        margin-top: 0.25rem;
+
+        font-size: 2rem;
+        letter-spacing: 0.025rem;
+      }
+
+      & > span {
+        color: #7161ef;
+      }
+    }
+
+    & > .description {
+      margin-top: 1rem;
+
+      color: #212121;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.025rem;
+
+      @include mobile() {
+        margin-top: 0.75rem;
+
+        font-size: 0.875rem;
+        letter-spacing: 0.01rem;
+      }
+
+      @include mobile() {
+        text-align: center;
+      }
+    }
+
+    & > .button {
+      padding: 0.875rem 2rem;
+      margin-top: 2rem;
+
+      color: #fff;
+      font-weight: 500;
+
+      border-radius: 0.75rem;
+      width: fit-content;
+      background: #7161ef;
+
+      @include mobile() {
+        margin-top: 1rem;
+
+        font-size: 0.875rem;
+        letter-spacing: 0.01rem;
+      }
+    }
+  }
+
+  & > .right {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    place-items: center;
 
-    & > .card {
-      border: 1px solid #eaeaea;
-      border-radius: 1rem;
+    & > img {
+      width: calc(100% - 4rem);
+      height: fit-content;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
 
-      display: flex;
-      flex-flow: column;
-
-      padding: 1rem;
-
-      & > .image {
-        width: 100%;
-        height: 100%;
-        aspect-ratio: 16 / 9;
-
-        object-fit: cover;
-        border-radius: 0.5rem;
-      }
-
-      & > .title {
-        padding-block: 1rem;
-        font-size: 1.25rem;
-        font-weight: 500;
-      }
-
-      & > .nav {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 1rem;
-
-        & > .link {
-          text-align: center;
-          background: #212121;
-          color: #fff;
-
-          padding: 0.75rem;
-          border-radius: 0.5rem;
-
-          font-size: 0.875rem;
-          font-weight: 500;
-          letter-spacing: 0.02rem;
-        }
+      @include mobile() {
+        width: min(100%, 20rem);
       }
     }
   }
